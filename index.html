@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Glifit — Cockpit Backend Sharing</title>
+  <link rel="stylesheet" href="dashboard/dashboard.css">
+</head>
+<body>
+  <nav class="topbar" aria-label="Navigation principale">
+    <div class="topbar-inner">
+      <strong>Glifit Backend Sharing</strong>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#taches">Tâches</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#documents">Documents</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="header-content">
+      <div class="eyebrow">Cockpit global · MVP</div>
+      <h1>Une vue, six tâches.</h1>
+      <p class="lead">Le cockpit de pilotage reste synthétique. Chaque tâche possède maintenant son dashboard dédié avec son statut, ses preuves, sa progression et son prompt.</p>
+      <div class="hero-meta">
+        <span class="pill">Couvertures de livres uniquement</span>
+        <span class="pill">5 phases séquentielles</span>
+        <span class="pill">Source de vérité : Markdown</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="dashboard" class="dashboard">
+      <div>
+        <div class="eyebrow">Pilotage</div>
+        <h2>État du chantier</h2>
+      </div>
+
+      <div class="dashboard-summary" aria-label="Résumé de l’avancement">
+        <div class="dashboard-stat"><strong>4</strong><span>jalons terminés</span></div>
+        <div class="dashboard-stat"><strong>1</strong><span>sous-phase en cours</span></div>
+        <div class="dashboard-stat"><strong>1</strong><span>phase bloquée</span></div>
+        <div class="dashboard-stat"><strong>130</strong><span>assertions backend validées localement</span></div>
+      </div>
+
+      <div class="dashboard-layout">
+        <section class="panel">
+          <h3>Pipeline des phases</h3>
+          <p>Une phase suivante reste verrouillée tant que sa dépendance n’est pas validée.</p>
+          <div class="pipeline">
+            <a class="pipeline-row" href="dashboard/phase-01.html"><span class="pipeline-number">01</span><span><strong>Reconnaissance des couvertures</strong><small>Collecte et mesure VisionKit + DINOv2</small></span><span class="status done">Terminée · GO conditionnel</span></a>
+            <a class="pipeline-row" href="dashboard/phase-02.html"><span class="pipeline-number">02</span><span><strong>Backend Supabase</strong><small>Socle local validé · dette BT-02-001 transférée</small></span><span class="status done">Terminée · GO final</span></a>
+            <a class="pipeline-row" href="dashboard/phase-03.html"><span class="pipeline-number">03</span><span><strong>Worker Railway</strong><small>Staging validé, dette BT-02-001 soldée et service arrêté</small></span><span class="status done">Terminée · GO final</span></a>
+            <a class="pipeline-row" href="dashboard/phase-04.html"><span class="pipeline-number">04A</span><span><strong>Conception UX iOS</strong><small>Wireframes HTML 1.1 validés ; Figma reporté au design system</small></span><span class="status done">Terminée · GO UX</span></a>
+            <a class="pipeline-row" href="04-integration-ios.md"><span class="pipeline-number">04B</span><span><strong>Intégration iOS</strong><small>Fondations locales et outil caméra ; smoke physique requis</small></span><span class="status active">En cours</span></a>
+            <a class="pipeline-row" href="dashboard/phase-05.html"><span class="pipeline-number">05</span><span><strong>Préparation production</strong><small>Dépend de la validation de la Phase 04B</small></span><span class="status blocked">Bloquée</span></a>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h3>Prochaine action</h3>
+          <p>La Phase 04A est validée. La Phase 04B est en cours localement : les fondations iOS et l’outillage caméra existent, mais le prochain verrou est le smoke test physique du correctif caméra, puis la recette VisionKit d’ajout d’une couverture inconnue. Aucun staging, Railway ou déploiement de production n’est autorisé à ce stade.</p>
+          <a class="primary-link" href="04-integration-ios.md">Ouvrir le contrat Phase 04B</a>
+          <p class="note"><strong>Garde-fou :</strong> aucun fil ouvert automatiquement dans la zone DINO limite ; confirmer la même couverture et édition ou rescanner.</p>
+        </section>
+      </div>
+    </section>
+
+    <section id="taches">
+      <div class="eyebrow">Exécution</div>
+      <h2>Dashboards par tâche</h2>
+      <div class="task-directory">
+        <a class="task-link" href="dashboard/pilotage.html"><span class="status active">Active</span><h3>Conversation maître</h3><p>Contrats, preuves, dépendances et décisions GO/NO‑GO.</p></a>
+        <a class="task-link" href="dashboard/phase-01.html"><span class="status done">Terminée · GO conditionnel</span><h3>Phase 01 · Reconnaissance</h3><p>14/14 top‑1, 12 automatiques + 2 humaines, 0 erreur.</p></a>
+        <a class="task-link" href="dashboard/phase-02.html"><span class="status done">Terminée · GO final</span><h3>Phase 02 · Supabase</h3><p>Socle Supabase validé et checkpoint créé.</p></a>
+        <a class="task-link" href="dashboard/phase-03.html"><span class="status done">Terminée · GO final</span><h3>Phase 03 · Railway</h3><p>Worker validé ; BT-02-001 soldée ; service staging arrêté.</p></a>
+        <a class="task-link" href="dashboard/phase-04.html"><span class="status done">04A · Terminée · GO UX</span><h3>Phase 04 · Conception UX iOS</h3><p>Wireframes HTML 1.1 validés par le propriétaire ; Figma reporté.</p></a>
+        <a class="task-link" href="04-integration-ios.md"><span class="status active">04B · En cours</span><h3>Phase 04 · Intégration iOS</h3><p>Fondations locales, caméra et recettes iPhone ; aucun branchement staging à ce stade.</p></a>
+        <a class="task-link" href="dashboard/phase-05.html"><span class="status blocked">Bloquée</span><h3>Phase 05 · Production</h3><p>Signalements, sécurité, charge, TestFlight et rollout.</p></a>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="eyebrow">Vue d’ensemble</div>
+      <h2>Architecture retenue</h2>
+      <div class="architecture" role="img" aria-label="L’iPhone communique avec Supabase, qui fournit les tâches au worker Railway">
+        <div class="architecture-node"><div><strong>Application iOS</strong>Scan, empreinte locale, SwiftData et ARKit.</div></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="architecture-node"><div><strong>Supabase</strong>Auth, Postgres, pgvector/HNSW, Storage privé, RLS et API.</div></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="architecture-node"><div><strong>Railway</strong>Worker Python, empreinte serveur, miniatures et validation technique.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Gouvernance</div>
+      <h2>Règles de passage</h2>
+      <div class="rules-grid">
+        <article class="panel"><h3>Une phase à la fois</h3><ul><li>La conversation maître débloque les phases.</li><li>Une phase bloquée ne commence pas en avance.</li><li>Un checkpoint Git suit chaque phase validée.</li></ul></article>
+        <article class="panel"><h3>Protection du périmètre</h3><ul><li>La recherche invitée n’envoie jamais le cliché.</li><li>Les anciennes notes restent locales.</li><li>Les couvertures de livres sont le seul domaine V1.</li></ul></article>
+        <article class="panel"><h3>Secrets et coûts</h3><ul><li>Aucun secret dans Git ou l’application.</li><li>Aucun service ou quota payant sans validation.</li><li>La production demande une autorisation explicite.</li></ul></article>
+        <article class="panel"><h3>Rapport obligatoire</h3><ul><li>Résultats, décisions et commandes.</li><li>Limites rencontrées.</li><li>Handoff vers la tâche suivante.</li></ul></article>
+      </div>
+    </section>
+
+    <section id="documents">
+      <div class="eyebrow">Sources de vérité</div>
+      <h2>Contrats Markdown</h2>
+      <div class="documents">
+        <a class="document-link" href="00-pilotage-mvp-backend.md"><strong>00 — Pilotage maître</strong><small>Architecture, décisions, statuts et gouvernance.</small></a>
+        <a class="document-link" href="01-spike-reconnaissance-visuelle.md"><strong>01 — Reconnaissance visuelle</strong><small>Couvertures, VisionKit, DINOv2, Core ML et GO/NO‑GO.</small></a>
+        <a class="document-link" href="02-backend-supabase.md"><strong>02 — Supabase</strong><small>Auth, Postgres, Storage, RLS et API.</small></a>
+        <a class="document-link" href="03-worker-railway.md"><strong>03 — Railway</strong><small>Worker Python, validation technique et résilience.</small></a>
+        <a class="document-link" href="04a-conception-ux-ios.md"><strong>04A — Conception UX iOS</strong><small>Wireframes, états et validation propriétaire.</small></a>
+        <a class="document-link" href="04-integration-ios.md"><strong>04B — Intégration iOS</strong><small>SwiftUI, services, SwiftData et ARKit.</small></a>
+        <a class="document-link" href="05-preparation-production.md"><strong>05 — Production</strong><small>Sécurité, charge, signalements et rollout.</small></a>
+        <a class="document-link" href="dettes-techniques.md"><strong>Registre des dettes techniques</strong><small>Écarts différés, jalons bloqués et critères de résolution.</small></a>
+      </div>
+      <p>Les dashboards sont des vues de pilotage. En cas de divergence, les contrats Markdown restent prioritaires.</p>
+    </section>
+  </main>
+
+  <footer>Glifit Backend Sharing · Cockpit global · état au 29 septembre 2026</footer>
+</body>
+</html>
